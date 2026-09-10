@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О себе - Студент-разработчик</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f8ff; /*светло-синий фон*/
+            color: #000033; /*темно-синий текст*/
+            margin: 20px;
+        }
+        header, footer {
+            background-color: #003366; /*Синий фон шапки и подвала*/
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #003366;
+        }
+        /* Простая боковая панель с помощью обтекания */
+        aside {
+            background-color: #e6f2ff;
+            padding: 15px;
+            border: 1px solid #003366;
+            float: right; 
+            width: 250px;
+            margin-left: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        form input, form textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Татьяна Авраменко</h1>
+        <h2>Студент-разработчик</h2>
+    </header>
+
+    <div class="clearfix">
+        <aside>
+            <h3>Кратко обо мне</h3>
+            <p>Студент 3-го курса.</p>
+            <p><strong>Любимые инструменты:</strong></p>
+            <ul>
+                <li>VS Code</li>
+                <li>Git</li>
+                <li>Oracle Forms</li>
+            </ul>
+        </aside>
+
+        <main>
+            <img src="кот.jpg" alt="Мое фото" width="200" height="200">
+
+            <section>
+                <h3>Навыки</h3>
+                <ul>
+                    <li>C++</li>
+                    <li>Параллельное программирование</li>
+                    <li>Базы данных (Oracle, SQL)</li>
+                    <li>Python</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Учебные проекты</h3>
+                <ol>
+                    <li>База данных для скорой помощи (Oracle).</li>
+                    <li>Решение математических задач на вычислительном кластере.</li>
+                    <li>Экспертная диагностическая система (Python).</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>Обратная связь</h3>
+                <form action="#" method="POST">
+                    <p>Ваше имя</p>
+                    <input type="text" name="name" placeholder="Иванов Иван Иванович" required>
+                    <p>Ваш Email</p>
+                    <input type="email" name="email" placeholder="tipoemail@mail.com" required>
+                    <p>Ваше сообщение</p>
+                    <textarea name="message" placeholder="Почему не учишь ассемблер??" rows="4" required></textarea>
+                    <button type="submit">Отправить</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Татьяна Авраменко.</p>
+    </footer>
+
+</body>
+</html>
