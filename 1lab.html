@@ -2,81 +2,73 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О себе - Студент-разработчик</title>
+    
+    <!-- Подключение внешнего CSS-файла -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Внутренний стиль (по заданию: стили для поля Email) -->
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f0f8ff; /*светло-синий фон*/
-            color: #000033; /*темно-синий текст*/
-            margin: 20px;
-        }
-        header, footer {
-            background-color: #003366; /*Синий фон шапки и подвала*/
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        main {
-            background-color: white;
-            padding: 20px;
-            margin: 10px 0;
-            border: 1px solid #003366;
-        }
-        /* Простая боковая панель с помощью обтекания */
-        aside {
-            background-color: #e6f2ff;
-            padding: 15px;
-            border: 1px solid #003366;
-            float: right; 
-            width: 250px;
-            margin-left: 20px;
-        }
-        section {
-            margin-bottom: 20px;
-        }
-        form input, form textarea {
-            display: block;
-            margin-bottom: 10px;
+        input[type="email"] {
+            padding: 12px;
+            border-radius: 6px;
+            border: 2px solid #cccccc;
+            transition: border-color 0.3s;
             width: 100%;
-            max-width: 300px;
+            box-sizing: border-box;
         }
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
+        input[type="email"]:focus {
+            border-color: #002244; 
+            outline: none;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- Inline-стиль (padding: 20px напрямую в HTML) -->
+    <header style="padding: 20px;">
         <h1>Татьяна Авраменко</h1>
         <h2>Студент-разработчик</h2>
     </header>
 
-    <div class="clearfix">
+    <div class="container clearfix">
         <aside>
             <h3>Кратко обо мне</h3>
-            <p>Студент 3-го курса.</p>
-            <p><strong>Любимые инструменты:</strong></p>
+            <p>Студент 3-го курса. Ищу стажировку.</p>
+            <p><strong>Инструменты:</strong></p>
             <ul>
                 <li>VS Code</li>
                 <li>Git</li>
                 <li>Oracle Forms</li>
             </ul>
+            <a href="https://github.com/lunnesi" class="profile-link" target="_blank">Мой профиль GitHub</a>
         </aside>
 
         <main>
-            <img src="assets/cat.jpg.jpg" alt="Мое фото" width="200" height="200">
+            <img src="assets/cat.jpg" alt="Мое фото" width="120" height="120" class="avatar">
 
             <section>
-                <h3>Навыки</h3>
-                <ul>
-                    <li>C++</li>
-                    <li>Параллельное программирование</li>
-                    <li>Базы данных (Oracle, SQL)</li>
-                    <li>Python</li>
-                </ul>
+                <h3>Мои Навыки</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="badge">Top skill</span>
+                        <h4>C++</h4>
+                        <p>ООП, шаблоны, структуры данных</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Python</h4>
+                        <p>Автоматизация и скрипты</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Базы данных</h4>
+                        <p>SQL, Oracle</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Параллельное программирование</h4>
+                        <p>OpenMP, MPI, кластеры</p>
+                    </div>
+                </div>
             </section>
 
             <section>
@@ -90,12 +82,12 @@
 
             <section>
                 <h3>Обратная связь</h3>
-                <form action="#" method="POST">
-                    <p>Ваше имя</p>
+                <form action="#" method="POST" class="contact-form">
+                    <label>Ваше Фио</label>
                     <input type="text" name="name" placeholder="Иванов Иван Иванович" required>
-                    <p>Ваш Email</p>
+                    <label>Ваш Email</label>
                     <input type="email" name="email" placeholder="tipoemail@mail.com" required>
-                    <p>Ваше сообщение</p>
+                    <label>Ваше сообщение</label>
                     <textarea name="message" placeholder="Почему не учишь ассемблер??" rows="4" required></textarea>
                     <button type="submit">Отправить</button>
                 </form>
