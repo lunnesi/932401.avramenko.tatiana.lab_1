@@ -2,101 +2,177 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О себе - Студент-разработчик</title>
+  
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f0f8ff; /*светло-синий фон*/
-            color: #000033; /*темно-синий текст*/
-            margin: 20px;
-        }
-        header, footer {
-            background-color: #003366; /*Синий фон шапки и подвала*/
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        main {
-            background-color: white;
-            padding: 20px;
-            margin: 10px 0;
-            border: 1px solid #003366;
-        }
-        /* Простая боковая панель с помощью обтекания */
-        aside {
-            background-color: #e6f2ff;
-            padding: 15px;
-            border: 1px solid #003366;
-            float: right; 
-            width: 250px;
-            margin-left: 20px;
-        }
-        section {
-            margin-bottom: 20px;
-        }
-        form input, form textarea {
-            display: block;
-            margin-bottom: 10px;
+        input[type="email"] {
+            padding: 12px;
+            border-radius: 6px;
+            border: 2px solid #cccccc;
+            transition: border-color 0.3s;
             width: 100%;
-            max-width: 300px;
+            box-sizing: border-box;
         }
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
+        input[type="email"]:focus {
+            border-color: #002244;
+            outline: none;
         }
     </style>
 </head>
 <body>
 
-    <header>
+
+    <header style="padding: 20px;">
         <h1>Татьяна Авраменко</h1>
         <h2>Студент-разработчик</h2>
+        
+        <!-- Flexbox-навигация -->
+        <nav class="main-nav">
+            <a href="#about">О себе</a>
+            <a href="#skills">Навыки</a>
+            <a href="#projects">Проекты</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#contact">Обратная связь</a>
+        </nav>
     </header>
 
-    <div class="clearfix">
-        <aside>
+    <div class="container clearfix">
+        <aside id="about">
             <h3>Кратко обо мне</h3>
-            <p>Студент 3-го курса.</p>
-            <p><strong>Любимые инструменты:</strong></p>
+            <p>Студентка 3-го курса. Ищу стажировку.</p>
+            <p><strong>Инструменты:</strong></p>
             <ul>
                 <li>VS Code</li>
                 <li>Git</li>
-                <li>Oracle Forms</li>
+                <li>Oracle Database</li>
             </ul>
+            <a href="https://github.com/lunnesi" class="profile-link" target="_blank">Мой профиль GitHub</a>
         </aside>
 
         <main>
-            <img src="assets/cat.jpg.jpg" alt="Мое фото" width="200" height="200">
+            <img src="assets/cat.jpg" alt="Мое фото" width="120" height="120" class="avatar">
 
-            <section>
-                <h3>Навыки</h3>
-                <ul>
-                    <li>C++</li>
-                    <li>Параллельное программирование</li>
-                    <li>Базы данных (Oracle, SQL)</li>
-                    <li>Python</li>
-                </ul>
+
+            <section id="skills">
+                <h3>Мои Навыки</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="badge">Top skill</span>
+                        <h4>C++</h4>
+                        <p>ООП, шаблоны, структуры данных</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Python</h4>
+                        <p>Автоматизация и скрипты</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Базы данных</h4>
+                        <p>SQL, Oracle Database</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Параллельное программирование</h4>
+                        <p>OpenMP, MPI, кластеры</p>
+                    </div>
+                </div>
             </section>
 
-            <section>
-                <h3>Учебные проекты</h3>
-                <ol>
-                    <li>База данных для скорой помощи (Oracle).</li>
-                    <li>Решение математических задач на вычислительном кластере.</li>
-                    <li>Экспертная диагностическая система (Python).</li>
-                </ol>
+            <!--Раздел "Проекты" (Flexbox-карточки <article>)-->
+            <section id="projects" class="projects-section">
+                <h3>Витрина проектов</h3>
+                <div class="projects-flex">
+                    
+                    <article class="project-card">
+                        <div class="project-icon">🚑</div>
+                        <div class="project-content">
+                            <h4>БД Скорой Помощи</h4>
+                            <p class="tech-stack"><strong>Стек:</strong> Oracle DB, SQL, PL/SQL</p>
+                            <p class="project-desc">Проектирование и реализация реляционной базы данных диспетчерской службы.</p>
+                            <a href="#" class="btn-more">Подробнее</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">⚡</div>
+                        <div class="project-content">
+                            <h4>Параллельный вычислитель</h4>
+                            <p class="tech-stack"><strong>Стек:</strong> C++, MPI, OpenMP</p>
+                            <p class="project-desc">Умножение матриц и численное интегрирование на вычислительном кластере.</p>
+                            <a href="#" class="btn-more">Подробнее</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">🐍</div>
+                        <div class="project-content">
+                            <h4>Диагностическая система</h4>
+                            <p class="tech-stack"><strong>Стек:</strong> Python, LangChain</p>
+                            <p class="project-desc">Экспертная система анализа данных и автоматической обработки запросов.</p>
+                            <a href="#" class="btn-more">Подробнее</a>
+                        </div>
+                    </article>
+
+                </div>
             </section>
 
-            <section>
+            <!--CSS Grid Галерея скриншотов (4 элемента — сетка 2x2)-->
+            <section id="gallery" class="gallery-section">
+                <h3>Скриншоты проектов</h3>
+                <div class="gallery-grid">
+                    
+                    <figure class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="assets/bd.png" alt="Схема базы данных">
+                            <div class="overlay"></div>
+                        </div>
+                        <figcaption>Схема таблиц Oracle DB</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="assets/grafic.png" alt="График ускорения MPI">
+                            <div class="overlay"></div>
+                        </div>
+                        <figcaption>График ускорения OpenMP/MPI</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="assets/rabota.jpg" alt="Интерфейс Python скрипта">
+                            <div class="overlay"></div>
+                        </div>
+                        <figcaption>Интерфейс анализатора данных</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="assets/kotik.jpg" alt="Адаптивная верстка">
+                            <div class="overlay"></div>
+                        </div>
+                        <figcaption>Макет мобильной верстки</figcaption>
+                    </figure>
+
+                </div>
+            </section>
+
+          
+            <section id="contact">
                 <h3>Обратная связь</h3>
-                <form action="#" method="POST">
-                    <p>Ваше имя</p>
-                    <input type="text" name="name" placeholder="Иванов Иван Иванович" required>
-                    <p>Ваш Email</p>
-                    <input type="email" name="email" placeholder="tipoemail@mail.com" required>
-                    <p>Ваше сообщение</p>
-                    <textarea name="message" placeholder="Почему не учишь ассемблер??" rows="4" required></textarea>
+                <form action="#" method="POST" class="contact-form">
+                    
+                    <label for="name-input">Ваше имя</label>
+                    <input type="text" id="name-input" name="name" placeholder="Иванов Иван Иванович" required>
+                    
+                    <label for="email-input">Ваш Email</label>
+                    <input type="email" id="email-input" name="email" placeholder="tipoemail@mail.com" required>
+                    
+                    <label for="message-input">Ваше сообщение</label>
+                    <textarea id="message-input" name="message" placeholder="Почему не учишь ассемблер??" rows="4" required></textarea>
+                    
                     <button type="submit">Отправить</button>
                 </form>
             </section>
