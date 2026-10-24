@@ -3,11 +3,11 @@ if (!studentName || studentName.trim() === "") {
     studentName = "Студент";
 }
 
-//Исходные данные
+//исходные данные
 let labScores = [92, 45, 88, 76, 95, 82];
 
 
-//Функция поиска максимального балла
+//функция поиска максимального балла
 function findMax(scores) {
     let max = scores[0];
     for (let i = 1; i < scores.length; i++) {
@@ -18,7 +18,7 @@ function findMax(scores) {
     return max;
 }
 
-//оставить только баллы >= 80 — «отлично»
+//функция фильтрации
 function filterHighScores(scores) {
     let highScores = [];
     for (let i = 0; i < scores.length; i++) {
@@ -29,7 +29,7 @@ function filterHighScores(scores) {
     return highScores;
 }
 
-//Функция подсчета суммы баллов
+//функция подсчета суммы баллов
 function calculateSum(scores) {
     let sum = 0;
     for (let i = 0; i < scores.length; i++) {
@@ -38,12 +38,15 @@ function calculateSum(scores) {
     return sum;
 }
 
-//Цикл для подсчета количества работ с баллом < 50 («неудовлетворительно»)
-let failedCount = 0;
-for (let i = 0; i < labScores.length; i++) {
-    if (labScores[i] < 50) {
-        failedCount++;
+//функция подсчета количества неудовлетворительных работ 
+function countFailed(scores) {
+    let failedCount = 0;
+    for (let i = 0; i < scores.length; i++) {
+        if (scores[i] < 50) {
+            failedCount++;
+        }
     }
+    return failedCount;
 }
 
 
@@ -52,6 +55,7 @@ let excellentWorks = filterHighScores(labScores);
 let countExcellent = excellentWorks.length;
 let totalSum = calculateSum(labScores);
 let averageScore = totalSum / labScores.length;
+let failedCount = countFailed(labScores); // Вызываем инкапсулированную функцию
 
 
 alert(`Привет, ${studentName}! У вас ${countExcellent} отличных работ, максимальный балл – ${maxScore}.`);
